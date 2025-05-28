@@ -1,7 +1,7 @@
 /*
     Базовый набор задач на использование логических операторов: &&, ||, !
     Для решения создай файл logical-op-solution.js в своей папке 
-    по пути YOUR_NAME/js/logical-op-solution.js
+    по пути YOUR_NAME/js-problems/logical-op-solution.js
 **/
 
 // Задача 1
