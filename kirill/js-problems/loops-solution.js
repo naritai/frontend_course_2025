@@ -157,16 +157,38 @@ if(!isNaN(number3)) {
     const result = factorial(number3);
     console.log(`Факториал ${number3} инфа сотка = ${result}`);
 } else {
-    console.log("Ты шо? Не можешь ввести число??")
+    console.log("Ты шо? Не можешь ввести число??");
 }
 
 
 
 // Задача 9
 // Из строки "javascript" выведи только гласные.
+// решение
+
+  const string2 = "javascript";
+  const vovels = "aeiou";
+
+  for (let i = 0; i < string2.length; i++) {
+      const char = string2[i];
+      if (vovels.includes(char)) {
+        console.log(char);
+      }
+  }
 
 // Задача 10
 // Найди сумму всех чётных чисел от 1 до 100.
+// решение 
+
+  let sumEvenNumbers = 0;
+
+  for (let i = 1; i <= 100; i++) {
+    if (i % 2 === 0){
+        sumEvenNumbers +=i;
+    }
+  }
+
+  console.log(sumEvenNumbers);
 
 // Задача 11
 // Выведи все элементы двумерного массива.
@@ -175,20 +197,64 @@ const matrix = [
   [1, 2],
   [3, 4],
 ];
+//решение
+
+for (let i = 0; i < matrix.length; i++) {
+  for (let j = 0; j < matrix[i].length; j++) {
+    console.log (matrix[i][j]);
+  }
+}
 
 // Задача 12
 // Найди наибольшее число в массиве numbers.
 const numbers = [5, 3, 9, 1, 12, 30, 4, 6, 8, 3];
+let maxNumbers = numbers[0];
+
+ for (let i = 0; i < numbers.length; i++){
+  if(numbers[i] > maxNumbers){
+    maxNumbers = numbers[i]
+  }
+ }
+
+ console.log(maxNumbers);
 
 // Задача 13
 // Выведи числа от 1 до 10, кроме 5.
+// решение
+
+for (let i = 1; i <=10; i++) {
+  if (i === 5){
+    continue;
+  }
+  console.log(i);
+}
 
 // Задача 14
 // Подсчитай, сколько раз символ "а" встречается в строке.
 const str = "banana it is the almost beautiful fruit! ahaha!";
+let countA = 0;
+
+for (let i = 0; i < str.length; i++) {
+  if (str[i] === "a") {
+    countA += 1;
+  }
+}
+
+console.log(countA);
 
 // Задача 15
 // Переверни строку "hello" в "olleh".
+// решение 
+
+const string3 = "hello";
+const gnirts = ""
+
+for (let i = string3.length -1; i >= 0; i--) {
+  gnirts += string3[i];
+  
+}
+
+console.log(gnirts);
 
 // Задача 16
 // Подсказка - у строк есть метод .repeat(CHAR) где CHAR твой символ в виде строки
@@ -198,14 +264,35 @@ const str = "banana it is the almost beautiful fruit! ahaha!";
 // ***
 // ****
 // *****
+// решение
+
+
+for (let i = 1; i <=5; i++) {
+  console.log("*".repeat(i));
+}
+
 
 // Задача 17
 // Выведи только уникальные значения из массива doubles.
 const doubles = [1, 2, 2, 3, 3, 4];
+const set_doubles = [];
+
+for (let i = 0; i < doubles.length; i++) {
+  if(!set_doubles.includes(doubles[i])){
+    set_doubles.push(doubles[i]);
+  }
+}
+
+console.log(set_doubles);
+
 
 // Задача 18
 // Найди второе максимальное число в массиве maxSecond.
-// const maxSecond = [10, 20, 30, 40];
+const maxSecond = [10, 20, 30, 40];
+// решение
+
+
+
 
 // Задача 19
 // Найди все дубликаты в массиве test и собери их в новый массив doubles2
