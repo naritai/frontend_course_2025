@@ -373,11 +373,24 @@ function isPrime(n) {
   // твое решение тут
   // используй цикл
 
-  
+    if (n <= 1) {
+    return false; // Числа меньше или равные 1 не являются простыми
+  }
+
+  // Проверяем делители от 2 до квадратного корня из n
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) {
+      return false; // Если число делится на i, оно не простое
+    }
+  }
+
+  return true; // Если не нашли делителей, число простое
 }
 
-isPrime(7); // ?
-isPrime(31); // ?
-isPrime(54); // ?
-isPrime(33); // ?
-isPrime(83); // ?
+
+
+isPrime(7); // true
+isPrime(31); // true
+isPrime(54); // false
+isPrime(33); // false
+isPrime(83); // true
