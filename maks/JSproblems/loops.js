@@ -26,10 +26,11 @@ for (let i = 2; i < 21; i = i+2) {
 };
 
 let i = 2;
-while (i < 21) {
+while (i <= 20) {
   if (i % 2 === 0) {
     console.log(i);
   };
+  i++;
 };
 
 // Задача 3
@@ -37,22 +38,24 @@ while (i < 21) {
 // Используя цикл while, найди сумму чисел от 1 до 100.
 
 let sum;
-for (let i = 0; i < 101; i++) {
+for (let i = 0; i <= 100; i++) {
   sum += i;
 };
 console.log(sum);
 let sum1 = 0;
 let i = 1;
-while (i < 100) {
+while (i <= 100) {
   sum += i;
   i++;
-}
+};
+
 // Задача 4
 // Для строки "hello" выведи каждый символ отдельно.
 let word = "hello";
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < word.length; i++) {
   console.log(word[i]);
-}
+};
+
 // Задача 5
 // Выведи элементы массива по одному
 const arr = [1, 2, 3, 4, 5, "a", "b", "c", true, false, null];
@@ -72,8 +75,9 @@ do {
 // Выведи числа от N до 1, где N — число от пользователя.
 // Доп задание - напиши функцию, которая будет принимать параметр N от пользователя
 // и будет выводить числа от N до 1
+
 let N = prompt("Введите число", 1);
-for (let i = 1; i <= N; i++) {
+for (let i = N; i >= 1; i--) {
   alert(i);
 }
 
@@ -90,10 +94,10 @@ console.log(sum);
 
 // Задача 9
 // Из строки "javascript" выведи только гласные.
-let abc = "aieuo";
+let vowels = "aieuo";
 let word = "javascript";
 for (let i = 0; i < word.length; i++) {
-  if (abc.includes(word[i])) {
+  if (vowels.includes(word[i])) {
     console.log(word[i]);
   };
 };
@@ -124,12 +128,12 @@ for (let i = 0; i < 2; i++) {
 // Найди наибольшее число в массиве numbers.
 const numbers = [5, 3, 9, 1, 12, 30, 4, 6, 8, 3];
 let max = numbers[0];
-for (let i = 0; i < numbers.length; i++) {
+for (let i = 1; i < numbers.length; i++) {
     if (numbers[i] > max) {
         max = numbers[i];
-    }
-}
-console.log(max)
+    };
+};
+console.log(max);
 
 // Задача 13
 // Выведи числа от 1 до 10, кроме 5.
@@ -144,7 +148,7 @@ const str = "banana it is the almost beautiful fruit! ahaha!";
 let sum = 0;
 for (let i = 0; i < str.length; i++) {
   if (str[i] === 'a') sum += 1;
-}
+};
 console.log(sum);
 
 // Задача 15
@@ -209,11 +213,12 @@ console.log('Второй максимум:', secondMax);
 // Задача 19
 // Найди все дубликаты в массиве test и собери их в новый массив doubles2
 const test = [1, 2, 2, 3, 4, 4];
-let doubles2 = [];
+const doubles2 = [];
+
 for (let i = 0; i < test.length; i++) {
-  if (doubles2.includes(test[i])) {
-    continue;
-  } else doubles2.push(test[i]);
+  if (test.indexOf(test[i], i + 1) > -1 && doubles2.indexOf(test[i]) === -1) {
+    doubles2.push(test[i]);
+  };
 };
 console.log(doubles2);
 

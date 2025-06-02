@@ -42,7 +42,7 @@ if ( today === "воскресенье" && today === "суббота") {
 const name = "Иван";
 const email = "ivan@example.com";
 
-if (name !!== undifined && email.includes("@")) {
+if (name !== undifined && email.includes("@")) {
   console.log("Данные корректны")
 };
 
@@ -72,7 +72,7 @@ if ((isGoodWeather === true || isWeekend === true) && hasFreeTime === true) {
 const allowedUsers = ["Иван", "Мария", "Олег"];
 const user = "Мария";
 
-if (user in allowedUsers) {
+if (allowedUsers.includes(user)) {
   console.log("Вход разрешен")
 };
 
@@ -80,7 +80,7 @@ if (user in allowedUsers) {
 // Если переменная truthy — выведи "Истинное значение".
 const val = "0";
 
-if (!!val == true) {
+if (!!val) {
   console.log("Истинное значение")
 };
 
@@ -97,7 +97,7 @@ if (user1.isPremium === true) {
 let x = true;
 let y = 0;
 
-if (x === true) {
+if ( x ) {
   y = 100
 };
 
@@ -108,7 +108,7 @@ const isSubscribed = true;
 const isActive = false;
 const hasPaid = true;
 
-if (isBanned  && isSubscribed === true && (isActive === true || hasPaid === true)) {
+if (!isBanned  && isSubscribed && (isActive || hasPaid)) {
   console.log("Доступ разрешен")
 };
 
@@ -118,7 +118,7 @@ const isWeekday = true;
 const badWeather = true;
 const isSick = false;
 
-if (isWeekday === true && badWeather === true && isSick ) {
+if (isWeekday && badWeather && !isSick ) {
   console.log("Идём на работу")
 };
 
@@ -142,7 +142,7 @@ const grade = 95;
 const lateDays = 2;
 const activeInClass = true;
 
-if (grade > 90 && lateDays <= 3 && activeInClass === true) {
+if (grade > 90 && lateDays <= 3 && activeInClass) {
   console.log("Достоен награды")
 } else console.log("Безделье — мать пороков, жи ec");
 
@@ -155,7 +155,7 @@ const isVip = false;
 const yearsRegistered = 2;
 const totalSpent = 1200;
 
-if (yearsRegistered > 1 && (totalSpent > 1000 || isVip === true)) {
+if (yearsRegistered > 1 && (totalSpent > 1000 || isVip)) {
   console.log('Скидку ему')
 } else console.log('Ты не достоин скидки');
 
@@ -198,7 +198,7 @@ const isCanceled = false;
 const isPaid = true;
 const status = "assembling"; // "shipped", "assembling"
 
-if (isCanceled  && isPaid === true && (status === "assembling" || status === "shipped")) {
+if (isCanceled  && isPaid && (status === "assembling" || status === "shipped")) {
   console.log("Ваш заказ в работе")
 } else console.log("Заказ отменен или не существует");
 
@@ -211,7 +211,7 @@ const isDead = false;
 const timeLeft = 0;
 const isGodMode = false;
 
-if (isDead === true || (timeLeft === 0 && isGodMode )) {
+if (isDead || (timeLeft === 0 && !isGodMode )) {
   console.log("GAME OVER LOOSER")
 } else console.log("GOOD LUCK");
 
@@ -224,7 +224,7 @@ const isRemote = true;
 const isForeign = false;
 const usesVPN = false;
 
-if ((isRemote === true || isForeign === true) && usesVPN ) {
+if (( isRemote || isForeign ) && usesVPN ) {
   console.log('ПЕРДУПРЕЖДЕНИЕ!')
 };
 
@@ -235,9 +235,15 @@ let name3 = "Оля";
 let email3 = "";
 let phone3 = "89991234567";
 function fillFields(name, email, phone) {
-  if (!!name ) name3 = prompt('Введите имя') || name3;
-  if (!!email ) email3 = prompt('Введите email') || email3;
-  if (!!phone ) phone3 = prompt('Введите телефон') || phone3;
+  if (!!name ) {
+    name3 = prompt('Введите имя') || name3;
+  };
+  if (!!email ) {
+    email3 = prompt('Введите email') || email3;
+  };
+  if (!!phone ) {
+    phone3 = prompt('Введите телефон') || phone3;
+  };
 };
 for (let i = 0; i < 2; i++) {
   if (!!name3  || !!email3  || !!phone3 ) {
