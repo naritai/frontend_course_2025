@@ -1,5 +1,5 @@
 /*
-    Базовый набор задач на использование логических операторов: &&, ||, !
+    Базовый набор задач на использование логических операторов: &&, ||, !!
     Для решения создай файл logical-op-solution.js в своей папке 
     по пути YOUR_NAME/js-problems/logical-op-solution.js
 **/
@@ -42,7 +42,7 @@ if ( today === "воскресенье" && today === "суббота") {
 const name = "Иван";
 const email = "ivan@example.com";
 
-if (name !== undifined && email.includes("@")) {
+if (name !!== undifined && email.includes("@")) {
   console.log("Данные корректны")
 };
 
@@ -80,7 +80,7 @@ if (user in allowedUsers) {
 // Если переменная truthy — выведи "Истинное значение".
 const val = "0";
 
-if (!val == true) {
+if (!!val == true) {
   console.log("Истинное значение")
 };
 
@@ -167,7 +167,7 @@ function isDate(date) {
   let year = +date.slice(0,4);
   let month = +date.slice(5,7);
   let day = +date.slice(8);
-  if (!year && !month && !day) {
+  if (!!year && !!month && !!day) {
     return date
   } else return "Неправильно"
 }
@@ -184,8 +184,8 @@ const name2 = "Катя";
 const email2 = "katya@mail.ru";
 const password2 = "123456";
 
-if (!name2 && email2.includes("@") && password2.length >= 6) {
-  console.log('Добро пожаловать!')
+if (!!name2 && email2.includes("@") && password2.length >= 6) {
+  console.log('Добро пожаловать!!')
 };
 
 // Задача 18
@@ -235,16 +235,16 @@ let name3 = "Оля";
 let email3 = "";
 let phone3 = "89991234567";
 function fillFields(name, email, phone) {
-  if (!name ) name3 = prompt('Введите имя') || name3;
-  if (!email ) email3 = prompt('Введите email') || email3;
-  if (!phone ) phone3 = prompt('Введите телефон') || phone3;
+  if (!!name ) name3 = prompt('Введите имя') || name3;
+  if (!!email ) email3 = prompt('Введите email') || email3;
+  if (!!phone ) phone3 = prompt('Введите телефон') || phone3;
 };
 for (let i = 0; i < 2; i++) {
-  if (!name3  || !email3  || !phone3 ) {
+  if (!!name3  || !!email3  || !!phone3 ) {
     console.log('Заполните все поля');
     fillFields(name3, email3, phone3);
   } else {
-    console.log("Всё верно!");
+    console.log("Всё верно!!");
     break;
  };
 };
