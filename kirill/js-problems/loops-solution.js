@@ -292,16 +292,77 @@ const maxSecond = [10, 20, 30, 40];
 // решение
 
 
+function second_max(arr) {
+
+  let max_1 = maxSecond[0];
+  let index_max_1 = 0;
+  let max_2 = maxSecond[0];
+
+  for (let i = 1; i < maxSecond.length; i++) {
+    if(maxSecond[i] > max_1) {
+      max_1 = maxSecond[i];
+      index_max_1 = i;
+    }
+  }
+
+  maxSecond.splice(index_max_1, 1);
+
+
+  for (let j = 1; j < arr.length; j++) {
+    if(arr[j] > max_2) {
+      max_2 = arr[j];
+    }
+  }
+
+return max_2;
+}
+
+const secondMax = second_max(maxSecond);
+console.log(secondMax);
 
 
 // Задача 19
 // Найди все дубликаты в массиве test и собери их в новый массив doubles2
 const test = [1, 2, 2, 3, 4, 4];
+// решение
+
+function tvoe_duplo(arr) {
+  const duplo = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j] && !duplo.includes(arr[i])) {
+        duplo.push(arr[i]);
+      }
+    }
+  }
+
+  return duplo;
+}
+
+const doubles2 = tvoe_duplo(test);
+console.log(doubles2);
+
 
 // Задача 20
 // Выведи общие элементы двух массивов.
-// let a1 = [1, 2, 3];
-// let a2 = [2, 3, 4];
+let a1 = [1, 2, 3];
+let a2 = [2, 3, 4];
+// решение
+
+function common_elements (arr1, arr2) {
+  const set_arr1_arr2 = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.includes(arr1[i]) && !set_arr1_arr2.includes(arr1[i])) {
+      set_arr1_arr2.push(arr1[i]);
+    }
+  }
+  return set_arr1_arr2;
+}
+
+const set_a1_a2 = common_elements(a1, a2);
+console.log(set_a1_a2);
+
 
 // Задача 21
 // Определи, является ли число N простым.
@@ -311,6 +372,8 @@ const test = [1, 2, 2, 3, 4, 4];
 function isPrime(n) {
   // твое решение тут
   // используй цикл
+
+  
 }
 
 isPrime(7); // ?
