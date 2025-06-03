@@ -292,31 +292,48 @@ const maxSecond = [10, 20, 30, 40];
 // решение
 
 
+
+
+// function second_max(arr) {
+
+//   let max_1 = maxSecond[0];
+//   let index_max_1 = 0;
+//   let max_2 = maxSecond[0];
+
+//   for (let i = 1; i < maxSecond.length; i++) {
+//     if(maxSecond[i] > max_1) {
+//       max_1 = maxSecond[i];
+//       index_max_1 = i;
+//     }
+//   }
+
+//   maxSecond.splice(index_max_1, 1);
+
+
+//   for (let j = 1; j < arr.length; j++) {
+//     if(arr[j] > max_2) {
+//       max_2 = arr[j];
+//     }
+//   }
+
+// return max_2;
+// }
 function second_max(arr) {
+  let max = arr[0];
+  let secondMax = arr[0];
 
-  let max_1 = maxSecond[0];
-  let index_max_1 = 0;
-  let max_2 = maxSecond[0];
-
-  for (let i = 1; i < maxSecond.length; i++) {
-    if(maxSecond[i] > max_1) {
-      max_1 = maxSecond[i];
-      index_max_1 = i;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+        if (arr[j] > max) {
+          secondMax = max;
+          max = arr[j];
+        } else if (arr[j] < max && arr[j] > secondMax) {
+          secondMax = arr[j];
+        }
     }
   }
-
-  maxSecond.splice(index_max_1, 1);
-
-
-  for (let j = 1; j < arr.length; j++) {
-    if(arr[j] > max_2) {
-      max_2 = arr[j];
-    }
-  }
-
-return max_2;
+  return secondMax;
 }
-
 const secondMax = second_max(maxSecond);
 console.log(secondMax);
 
