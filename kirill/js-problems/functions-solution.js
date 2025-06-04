@@ -90,7 +90,7 @@ function isPalindrome(str) {
     }
 }
 
-console.log(isPalindrome("221122"))
+console.log(isPalindrome("221122"));
 
 // Задача 6
 // Напиши функцию random(min, max), которая возвращает случайное число от min до max.
