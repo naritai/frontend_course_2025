@@ -95,15 +95,88 @@ console.log(isPalindrome("221122"));
 // Задача 6
 // Напиши функцию random(min, max), которая возвращает случайное число от min до max.
 // Подсказка - используй Math.random() и какие-нибудь методы округления (Math.round, Math.floor, Math.ceil)
+// решение 
+
+function random(min, max) {
+  if (min >= max) {
+    return "Минимум должен быть меньше максимума";
+  }
+
+  min = Math.ceil(min); // Округляем min до большего целого числа
+  max = Math.floor(max); // Округляем max до меньшего целого числа
+
+  return Math.floor(Math.random() * (max - min + 1)) + min; // работа со сдвигом в нужный диапазон 
+}
+
+console.log(random(-5, 10));
 
 // Задача 7
 // Напиши функцию charCount(str, char), которая возвращает число вхождений символа.
+// решение 
+
+function charCount(str, char) {
+  if (
+    typeof str !== 'string' ||
+    typeof char !== 'string' ||
+    char.length !== 1
+  ) {
+    return "аргументы введены некорректно";
+  }
+
+  countChar = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+        countChar += 1;
+    }
+  }
+  return countChar;
+}
+
+console.log(charCount("hello world", "l"));
 
 // Задача 8
 // Напиши функцию универсального калькулятора calculate(a, b, operator)
 // calculate(3, 2, '*'); ---> 6
 // calculate(6, 41, '+'); ---> 47
 // не забудь обработать деление на 0 (в этом случае выброси ошибку - throw new Error('невозможная операция'))
+// решение 
+
+function calculate(a, b, operator) {
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw new Error(`Аргументы ${a} и ${b} должны быть числами`);
+  }
+
+  if (typeof operator !== 'string') {
+    throw new Error(`Аргумент ${operator} должен быть строкой`);
+  }
+
+  if (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/') {
+    throw new Error(`Недопустимый ${operator}. Вот допустимые значения : +, -, *, /`);
+  }
+
+    let result;
+
+  switch (operator) {
+    case '+':
+      result = a + b;
+      break;
+    case '-':
+      result = a - b;
+      break;
+    case '*':
+      result = a * b;
+      break;
+    case '/':
+      if (b === 0) {
+        throw new Error("Деление на ноль невозможно");
+      }
+      result = a / b;
+      break;
+    }
+    return result;
+}
+
+console.log(calculate(3, 2, '*')); 
 
 // Задача 9
 // Напиши функцию map(fn, array), которая принимает на вход функцию и массив,
@@ -117,6 +190,26 @@ console.log(isPalindrome("221122"));
 // const arr = [1, 2, 3];
 // console.log(map(square, arr)); // [1, 4, 9]
 // console.log(arr); // [1, 2, 3]
+// решение
+
+const arr = [1, 2, 3];
+
+function map(fn, array) {
+    if (typeof fn !== "function" || !Array.isArray(array)) {
+        throw new Error("fn должен быть функцией, а array - массивом");
+    }
+
+    const mapArray = [];
+    for (let i = 0; i < array.length; i++) {
+      mapArray.push(fn(array[i]));
+    }
+
+  return mapArray
+}
+
+console.log(map(square, arr)); // [1, 4, 9]
+console.log(arr); // [1, 2, 3]
+
 
 // Задача 10
 // Напиши функцию, считающую число свойств в объекте:
@@ -131,3 +224,21 @@ console.log(isPalindrome("221122"));
 // console.log(count(d)); // 1
 
 // подсказка: надо использовать специальный цикл для объектов for (let key in obj) {}
+// решение 
+
+function count(obj) {
+  if (typeof obj !== "object" || obj === null) {
+    return 0;
+  }
+  
+  let countObj = 0 ;
+  for (let key in obj) {
+    if(obj.hasOwnProperty(key)){
+      countObj += 1;
+    }
+  }
+  return countObj;
+}
+
+const c = [1, 2, 3];
+console.log(count(c)); // 3
