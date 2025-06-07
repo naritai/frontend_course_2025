@@ -28,7 +28,7 @@ while (count <= 5) { // Пока счетчик меньше или равен 5
 //решение
 
 for (let i = 2; i <=20; i++){
-    if(i % 2 == 0){
+    if(i % 2 === 0){
         console.log(i);
     } 
 }
@@ -104,10 +104,11 @@ do {
 //решение
 
 function printNumbersDown(n) {
-  
-  while (n >= 1) {
-    console.log(n);
-    n--;
+  let num = n; // Создаем копию аргумента n
+
+  while (num >= 1) {
+    console.log(num);
+    num--;
   }
 }
 
@@ -199,7 +200,7 @@ const matrix = [
 ];
 //решение
 
-for (let i = 0; i < matrix.length; i++) {
+for (let i = 1; i < matrix.length; i++) {
   for (let j = 0; j < matrix[i].length; j++) {
     console.log (matrix[i][j]);
   }
@@ -275,15 +276,15 @@ for (let i = 1; i <=5; i++) {
 // Задача 17
 // Выведи только уникальные значения из массива doubles.
 const doubles = [1, 2, 2, 3, 3, 4];
-const set_doubles = [];
+const unique = [];
 
 for (let i = 0; i < doubles.length; i++) {
-  if(!set_doubles.includes(doubles[i])){
-    set_doubles.push(doubles[i]);
+  if(!unique.includes(doubles[i])){
+    unique.push(doubles[i]);
   }
 }
 
-console.log(set_doubles);
+console.log(unique);
 
 
 // Задача 18
@@ -319,21 +320,30 @@ const maxSecond = [10, 20, 30, 40];
 // return max_2;
 // }
 function second_max(arr) {
-  let max = arr[0];
-  let secondMax = arr[0];
+  if (!arr || arr.length < 2) {
+    return "Массив должен содержать не менее двух элементов";
+  }
 
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-        if (arr[j] > max) {
-          secondMax = max;
-          max = arr[j];
-        } else if (arr[j] < max && arr[j] > secondMax) {
-          secondMax = arr[j];
-        }
+  let max = Math.max(arr[0], arr[1]); 
+  let secondMax = Math.min(arr[0], arr[1]);
+
+  for (let i = 2; i < arr.length; i++) {
+    if (arr[i] > max) {
+      secondMax = max;
+      max = arr[i];
+    } else if (arr[i] > secondMax && arr[i] !== max) { 
+      secondMax = arr[i];
     }
   }
+
+  
+  if (max === secondMax) {
+    return "В массиве нет второго по величине элемента (все элементы одинаковы)";
+  }
+
   return secondMax;
 }
+
 const secondMax = second_max(maxSecond);
 console.log(secondMax);
 
@@ -343,22 +353,27 @@ console.log(secondMax);
 const test = [1, 2, 2, 3, 4, 4];
 // решение
 
-function tvoe_duplo(arr) {
-  const duplo = [];
+function findDuplicates(arr) {
+  const seen = {}; 
+  const duplicates = []; 
 
   for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[i] === arr[j] && !duplo.includes(arr[i])) {
-        duplo.push(arr[i]);
+    const element = arr[i];
+
+    if (seen[element]) {
+      if (!duplicates.includes(element)) {
+        duplicates.push(element);
       }
+    } else {
+      
+      seen[element] = true;
     }
   }
 
-  return duplo;
+  return duplicates;
 }
 
-const doubles2 = tvoe_duplo(test);
-console.log(doubles2);
+
 
 
 // Задача 20

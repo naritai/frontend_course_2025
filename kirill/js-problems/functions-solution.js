@@ -9,11 +9,11 @@
 // решение
 
 function square(num) {
-    if(typeof num === "number") {
-        return num * num;
-    } else {
-        return "Япона мать! Что тяжелого ввести число?";
-    }
+  if (typeof num !== number) {
+    throw new Error('num is not a number');
+  }
+
+  return num * num;
 }
 
 console.log(square(25));
@@ -25,9 +25,7 @@ console.log(square(25));
 function isEven(n) {
     if (typeof n === "number" && n % 2 === 0) {
         return true;
-    } else {
-        return false;
-    }
+    } 
 }
 
 console.log(isEven(4));
@@ -38,7 +36,7 @@ console.log(isEven(4));
 
 function min(a, b) {
     if (typeof a !== "number" || typeof b !== "number") {
-        return "Оба аргумента должны быть числами";
+        throw new Error("a or b is not Number");
     }
     if (a < b) {
         return `min = ${a}`;
@@ -75,7 +73,7 @@ console.log(inRange(18, 1, 31));
 
 function isPalindrome(str) {
     if (typeof str !== "string") {
-        return "заданный аргумент не является строкой";
+        throw new Error("str is not String")
     }
 
     let reversedStr = "";
@@ -83,11 +81,7 @@ function isPalindrome(str) {
         reversedStr += str[i];
     }
 
-    if (str === reversedStr) {
-        return `${str} - полиндром`;
-    } else {
-        return `${str} не является полиндромом`;
-    }
+    return (str === reversedStr) ? `${str} - полиндром` : `${str} не является полиндромом`;
 }
 
 console.log(isPalindrome("221122"));

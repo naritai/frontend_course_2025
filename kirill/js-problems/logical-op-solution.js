@@ -83,7 +83,7 @@ const allowedUsers = ["Иван", "Мария", "Олег"];
 const user = "Мария";
 //решение
 
-if (user.includes(allowedUsers)) {
+if (allowedUsers.includes(user)) {
     console.log("Вход разрешен");
 }
 
