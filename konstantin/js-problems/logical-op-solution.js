@@ -3,20 +3,21 @@
 let age = prompt('What\'s your age?');
 if (age >= 18) {
     alert('Доступ разрешен');
-    } else { alert('Доступ запрещён');
-}
+    } else { 
+    alert('Доступ запрещён');
+   }
 
 
 
 
 // Задача 2
 
-const login = "admin";
-const password = "1234";
+const LOGIN = "admin";
+const PASS = "1234";
 
 let inputLogin = prompt('Enter your login: ');
 let inputPassword = prompt('Enter your password: ');
-if (inputLogin == 'admin' && password == '1234') {
+if (inputLogin === LOGIN && inputPassword === PASS) {
     alert('Добро пожаловать!')
 }
 
@@ -38,7 +39,7 @@ if (num >= 10 || num <= 50) {
 
 const today = "воскресенье";
 
-if (today == 'суббота' || today == 'воскресенье') {
+if (today === 'суббота' || today === 'воскресенье') {
     alert('Выходной');
 }
 
@@ -76,7 +77,7 @@ const a = 5,
 const isWeekend = false;
 const hasFreeTime = true;
 
-if (isGoodWeather || !isWeekend && hasFreeTime) {
+if ((isGoodWeather || isWeekend) && hasFreeTime) {
     alert('Можно идти гулять');
 }
 
@@ -99,7 +100,7 @@ if (allowedUsers.includes(user)) {
 
 const val = "0";
 
-if(!!val == true) {
+if(!!val) {
     alert('Истинное значение')
 }
 
@@ -109,18 +110,21 @@ if(!!val == true) {
 // Задача 10
 
 const user1 = { isPremium: false };
+if (user1.isPremium) {
+    alert('Премиум');
+} else {
+    alert('Обычный');
+}
 
-    (user1 == true)? alert('Премиум') : alert('Обычный');
 
 
 
+// Задача 11
 
-    // Задача 11
-
-    let x = true;
+let x = true;
 let y = 0;
 
-if (!!x) {
+if (x) {
     y = 100;
 }
 
@@ -134,7 +138,7 @@ const isSubscribed = true;
 const isActive = false;
 const hasPaid = true;
 
-if (isBanned || isSubscribed && isActive || hasPaid) {
+if (!isBanned && isSubscribed && (isActive || hasPaid)) {
     alert('Доступ разрешён');
 }
 
@@ -147,7 +151,9 @@ const isWeekday = true;
 const badWeather = true;
 const isSick = false;
 
-isWeekday && badWeather && isSick || alert('Идём на работу');
+if (isWeekday && badWeather && !isSick) {
+    alert('Идём на работу');
+}
 
 
 
@@ -194,9 +200,8 @@ if (yearsRegistered > 1 && (totalSpent > 1000 || isVip)) {
 
 const date = "2024-12-01";
 
-let result = date;
-if (result ??= date) {
-    alert(result);
+if (date !== null && date !== '' && typeof date === 'string') {
+    alert(date);
 }
 
 
@@ -208,7 +213,7 @@ const name2 = "Катя";
 const email2 = "katya@mail.ru";
 const password2 = "123456";
 
-if (name2 == true || email2.includes('@') || (password2.length() >= 6)) {
+if (name2 && email2.includes('@') && password2.length >= 6) {
     alert('Registered');
 }
 
@@ -221,7 +226,7 @@ const isCanceled = false;
 const isPaid = true;
 const status = "assembling"; // "shipped", "assembling"
 
-if (!!isCanceled && !isPaid && status == 'shipped' || status == 'assembling') {
+if (!isCanceled && isPaid && (status === 'shipped' || status === 'assembling')) {
     alert('Status');
 }
 
@@ -234,7 +239,7 @@ const isDead = false;
 const timeLeft = 0;
 const isGodMode = false;
 
-if (!isDead || !!timeLeft && !!isGodMode) {
+if (isDead || (timeLeft === 0 && !isGodMode)) {
     alert('Game over');
 }
 
@@ -247,8 +252,8 @@ const isRemote = true;
 const isForeign = false;
 const usesVPN = false;
 
-if (!!isRemote ?? !isForeign ?? !!usesVPN) {
-    alert('Secutity warning!');
+if ((isRemote || isForeign) && !usesVPN) {
+    alert('Security warning!');
 }
 
 
@@ -260,6 +265,6 @@ const name3 = "Оля";
 const email3 = "";
 const phone3 = "89991234567";
 
-if (name3 || email3 || phone3) {
+if (!name3 || !email3 || !phone3) {
     alert('Заполните все поля');
 }
