@@ -125,5 +125,48 @@ for (let i = n; i < n; i++) {
 // Из строки "javascript" выведи только гласные.
 
 let str3 = 'javascript';
+let vowels = 'aeiouy';
+let result = '';
 
-for (let str3; )
+for (let i = 0; i < str3.length; i++) {
+    let char = str3[i];
+    if (vowels.includes(char)) {
+        result += char;
+    }
+}
+
+alert(result);
+
+
+
+
+// Задача 10
+// Найди сумму всех чётных чисел от 1 до 100.
+
+let sum = 0;
+
+for (let i = 1; i < 100; i++) {
+    if (i % 2 === 0) {
+        sum = sum + i;
+    } else {
+        continue;
+    }
+}
+
+alert(sum) // incorrect
+
+// correct version: 
+
+let sum = 0;
+
+for (let i = 1; i <= 100; i++) {
+    if (i % 2 === 0) {
+        sum = sum + i;
+    } else {
+        continue;
+    }
+}
+
+
+
+
