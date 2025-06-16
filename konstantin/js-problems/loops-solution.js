@@ -170,3 +170,149 @@ for (let i = 1; i <= 100; i++) {
 
 
 
+// Задача 11
+// Выведи все элементы двумерного массива.
+// Подсказка - вложенные циклы
+const matrix = [
+  [1, 2],
+  [3, 4],
+];
+
+for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+        console.log(matrix[i][j]);
+    }
+}
+
+
+
+
+// Задача 12
+// Найди наибольшее число в массиве numbers.
+const numbers = [5, 3, 9, 1, 12, 30, 4, 6, 8, 3];
+
+let maxNumber = numbers[0];
+for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > maxNumber) {
+        maxNumber = numbers[i];
+    }
+}
+
+console.log(maxNumber);
+
+
+
+
+// Задача 13
+// Выведи числа от 1 до 10, кроме 5.
+
+for (let i = 1; i < 11; i++) {
+    if (i === 5) {
+        continue;
+    }
+    console.log(i);
+}
+
+
+
+
+// Задача 14
+// Подсчитай, сколько раз символ "а" встречается в строке.
+const str = "banana it is the almost beautiful fruit! ahaha!";
+
+let countA = 0;
+for (let i = 0; i < str.length; i++) {
+    if (str[i] === 'a') {
+        countA += 1;
+    }
+}
+
+console.log(countA);
+
+
+
+
+// Задача 15
+// Переверни строку "hello" в "olleh".
+
+let str = 'olleh';
+let reversedStr = '';
+for (let i = str.length -1; i >= 0; i--) {
+    reversedStr += str[i]
+}
+
+console.log(reversedStr);
+
+
+
+
+// Задача 16
+// Подсказка - у строк есть метод .repeat(CHAR) где CHAR твой символ в виде строки
+// Выведи пирамидку из 5 строк:
+// *
+// **
+// ***
+// ****
+// *****
+
+let char = '*';
+for (let i = 1; i < 6; i++) {
+    console.log(char.repeat(i));
+}
+
+
+
+
+// Задача 17
+// Выведи только уникальные значения из массива doubles.
+const doubles = [1, 2, 2, 3, 3, 4];
+const uniqueValue = [];
+for (let i = 0; i < doubles.length; i++) {
+    const value = doubles[i];
+    if (!uniqueValue.includes(value)) {
+        uniqueValue.push(value);
+    }
+}
+
+console.log(uniqueValue);
+
+
+
+
+// Задача 18
+// Найди второе максимальное число в массиве maxSecond.
+
+const maxSecond = [10, 20, 30, 40];
+let max = -Infinity;
+let secondMax = -Infinity;
+
+for (let i = 0; i < maxSecond.length; i++) {
+  const num = maxSecond[i];
+
+  if (num > max) {
+    secondMax = max;
+    max = num;
+  } else if (num > secondMax && num !== max) {
+    secondMax = num;
+  }
+}
+console.log(secondMax);     // сам полностью решить не смог. попросил объяснения у chatgpt. не понял -Infinity, но без него никак,
+                            // если я правильно понимаю. по крайней мере если через цикл решать
+
+
+
+
+// Задача 19
+// Найди все дубликаты в массиве test и собери их в новый массив doubles2
+const test = [1, 2, 2, 3, 4, 4];
+const doubles2 = [];
+
+for (let i = 0; i < test.length; i++) {
+    const num = test[i];
+    doubles2.push(num);
+    if (doubles2.includes(num)) {
+        continue;
+    }
+}
+
+console.log(doubles2); // wrong solution 
