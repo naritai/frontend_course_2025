@@ -310,9 +310,66 @@ const doubles2 = [];
 for (let i = 0; i < test.length; i++) {
     const num = test[i];
     doubles2.push(num);
+
     if (doubles2.includes(num)) {
         continue;
     }
 }
 
 console.log(doubles2); // wrong solution 
+
+const doubles2 = [1, 2, 2, 3, 4, 4].filter((e, i, a) => a.indexOf(e) != i); // один из верных вариантов
+
+
+
+
+// Задача 20
+// Выведи общие элементы двух массивов.
+let a1 = [1, 2, 3];
+let a2 = [2, 3, 4];
+
+for (let i = 0; i < a1.length; i++) {
+    const num1 = a1[i];
+    for (let j = 0; j < a2.length; j++) {
+        const num2 = a2[j];
+        if (num1 === num2) {
+            console.log(num1);
+        }
+    }
+}
+
+
+
+
+// Задача 21
+// Определи, является ли число N простым.
+// Вспомни, что такое простое число и подумай
+// Напиши функцию для этого
+
+isPrime(7); // ?
+isPrime(31); // ?
+isPrime(54); // ?
+isPrime(33); // ?
+isPrime(83); // ?
+
+function isPrime(n) {
+    if (n % 2 !== 0 && n / n === 1 && n / 1 === n) {
+        console.log(n,'is prime');
+    } else {
+        console.log(n,'is not prime');
+    }
+}   // сам не додумался, как решить через цикл
+
+
+function isPrime(n) {
+  if (n < 2) {
+      console.log(n,'is not prime');
+  }
+
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      console.log(n,'is not prime');
+    }
+  }
+  console.log(n,'is prime');
+}
